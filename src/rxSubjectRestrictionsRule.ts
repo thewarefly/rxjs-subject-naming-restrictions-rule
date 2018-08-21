@@ -40,21 +40,6 @@ class RxBehaviorSubjectWalker extends Lint.RuleWalker {
         });
     }
 
-    protected checkAccessModifier(node: ts.PropertyDeclaration) {
-        const propertyText = node.getText();
-        const constructorDeclarationStartAt = propertyText.lastIndexOf('new ');
-        const propertyConstructorText = propertyText.slice(constructorDeclarationStartAt);
-        const isPublic = hasModifier(node.modifiers, ts.SyntaxKind.PublicKeyword);
-        if (!hasModifier(node.modifiers, ts.SyntaxKind.PublicKeyword, ts.SyntaxKind.ProtectedKeyword, ts.SyntaxKind.StaticKeyword, ts.SyntaxKind.PrivateKeyword) && this.isRxObject(propertyConstructorText)) {
-            this.addFailureAtNode(node, Rule.NO_MODIFIER_FAILURE_STRING);
-            if (isPublic && this.isRxObject(propertyConstructorText)) {
-                this.addFailureAtNode(node, Rule.MODIFIER_FAILURE_STRING)
-            } else {
-                return;
-            }
-        }
-    }
-
     protected checkNamingConvention(node: ts.PropertyDeclaration) {
         const propertyText = node.getText();
         const constructorDeclarationStartAt = propertyText.lastIndexOf('new ');
@@ -71,7 +56,6 @@ class RxBehaviorSubjectWalker extends Lint.RuleWalker {
     }
 
     protected check(node: ts.PropertyDeclaration): void {
-        this.checkAccessModifier(node);
         this.checkNamingConvention(node)
     }
 }
