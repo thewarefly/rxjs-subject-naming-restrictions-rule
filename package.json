@@ -1,5 +1,5 @@
 {
-  "name": "tslint-rxjs-subject-naming-restrictions-rule",
+  "name": "@warefly/tslint-rxjs-subject-naming-restrictions-rule",
   "version": "1.0.3",
   "description": "Custom tslint rule for linting rxjs subjects usage in your code",
   "main": "dist/rxSubjectRestrictionsRule.js",
