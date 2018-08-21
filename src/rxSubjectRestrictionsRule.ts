@@ -5,7 +5,7 @@ export class Rule extends Lint.Rules.AbstractRule {
     public static NAMING_FAILURE_STRING = 'The name of RxJS Subject variable must ends with "$"';
 
     public static metadata: Lint.IRuleMetadata = {
-        ruleName: 'rx-subject-naming-restrictions',
+        ruleName: 'rx-subject-restrictions',
         description: 'Naming for RxJS BehaviourSubject',
         rationale: 'Helps maintain a convention in your codebase.',
         optionsDescription: 'Not configurable.',
