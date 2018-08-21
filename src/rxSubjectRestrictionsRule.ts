@@ -1,17 +1,12 @@
 import * as ts from 'typescript';
 import * as Lint from 'tslint';
 
-import { hasModifier } from 'tsutils';
-
 export class Rule extends Lint.Rules.AbstractRule {
-    public static MODIFIER_FAILURE_STRING = 'Public access modifier for RxJS Subject is not allowed';
     public static NAMING_FAILURE_STRING = 'The name of RxJS Subject variable must ends with "$"';
-    public static NO_MODIFIER_FAILURE_STRING = 'RxJS Subject must have access modifier';
-
 
     public static metadata: Lint.IRuleMetadata = {
-        ruleName: 'rx-subject-restrictions',
-        description: 'Strict access modifier and naming for RxJS BehaviourSubject',
+        ruleName: 'rx-subject-naming-restrictions',
+        description: 'Naming for RxJS BehaviourSubject',
         rationale: 'Helps maintain a convention in your codebase.',
         optionsDescription: 'Not configurable.',
         options: null,
